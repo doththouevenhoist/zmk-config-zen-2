@@ -60,9 +60,9 @@
         config_layer {
 		label = "CONFIG";
                 bindings = <
-        &kp F1		&kp F2  		&kp F3	&kp F4	&kp F5	&kp F6			&kp F7		&kp F8		&kp F9			&kp F10		&kp F11		&kp F12
-        &trans		&bt BT_SEL 0	&none 	&none	&none	&bootloader 	&kp HOME	&kp PG_UP	&kp C_VOL_UP	&none		&kp UP		&none
-        &bt BT_CLR	&out OUT_TOG	&none	&none	&none	&none			&kp END		&kp PG_DN	&kp C_VOL_DN	&kp LEFT	&kp DOWN	&kp RIGHT 
+        &kp F1		&kp F2  		&kp F3	&kp F4	&kp F5	&kp F6		&kp F7		&kp F8		&kp F9			&kp F10		&kp F11		&kp F12
+        &bootloader &bt BT_SEL 0	&none 	&none	&none	&none 		&kp HOME	&kp PG_UP	&kp C_VOL_UP	&none		&kp UP		&none
+        &bt BT_CLR	&out OUT_TOG	&none	&none	&none	&none		&kp END		&kp PG_DN	&kp C_VOL_DN	&kp LEFT	&kp DOWN	&kp RIGHT 
 												&trans   &trans     &kp C_MUTE     				&bootloader	&none	&trans
             >;
         };
