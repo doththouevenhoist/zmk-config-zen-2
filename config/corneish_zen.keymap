@@ -40,7 +40,7 @@
 	        label = "QWERTY";
                 bindings = <
          &kp ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P			&kp BSPC
-         &kp LSHFT	&kp A 	&kp S	&kp D 	&kp F 	&kp G 		&kp H   &hm RCTRL J	&hm RSHFT K &hm RALT L  &hm RGUI SEMI   &kp RSHFT 
+         &kp LSHFT	&kp A 	&kp S	&kp D 	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RALT K 	&hm RSHFT L &hm RCTRL SEMI  &kp RSHFT 
          &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    	&kp DEL
 					&kp LALT	&kp LCTRL	&kp SPACE						&kp RET		&mo 1	&mo 2	
 					// take out &lt 2 RGUI and just use a regular momentary layer here... I'll use just hm mods.  When the eff would I need to press Win+L anyway
