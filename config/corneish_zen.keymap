@@ -40,10 +40,10 @@
 	        label = "QWERTY";
                 bindings = <
          &kp ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P			&kp BSPC
+		 // edited right half home row mods to GASC instead of CASG (will make locking easier as well I guess?)
          &kp LSHFT	&kp A 	&kp S	&kp D 	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RALT K 	&hm RSHFT L &hm RCTRL SEMI  &kp RSHFT 
          &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    	&kp DEL
 					&kp LALT	&kp LCTRL	&kp SPACE						&kp RET		&mo 1	&mo 2	
-					// take out &lt 2 RGUI and just use a regular momentary layer here... I'll use just hm mods.  When the eff would I need to press Win+L anyway
             >;
         };
 
@@ -60,9 +60,9 @@
         config_layer {
 		label = "CONFIG";
                 bindings = <
-        &kp F1		&kp F2  		&kp F3	&kp F4	&kp F5	&kp F6		&kp F7		&kp F8		&kp F9			&kp F10		&kp F11		&kp F12
-        &bootloader &bt BT_SEL 0	&none 	&none	&none	&none 		&kp HOME	&kp PG_UP	&kp C_VOL_UP	&none		&kp UP		&none
-        &bt BT_CLR	&out OUT_TOG	&none	&none	&none	&none		&kp END		&kp PG_DN	&kp C_VOL_DN	&kp LEFT	&kp DOWN	&kp RIGHT 
+        &kp F1		&kp F2  		&kp F3		 &kp F4	&kp F5	&kp F6		&kp F7		&kp F8		&kp F9			&kp F10		&kp F11		&kp F12
+        &bootloader &bt BT_SEL 0	&bt BT_SEL 1 &none	&none	&none 		&kp HOME	&kp PG_UP	&kp C_VOL_UP	&none		&kp UP		&none
+        &bt BT_CLR	&out OUT_TOG	&none		 &none	&none	&none		&kp END		&kp PG_DN	&kp C_VOL_DN	&kp LEFT	&kp DOWN	&kp RIGHT 
 												&trans   &trans     &kp C_MUTE     				&bootloader	&none	&trans
             >;
         };
