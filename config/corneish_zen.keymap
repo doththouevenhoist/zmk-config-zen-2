@@ -2,11 +2,13 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <keymap_us_international.h>
 
 #define QWERTY 0
 #define NUMSYM 1
 #define CONFIG 2
 #define REBOOT 3
+#define LOCK 4
 
 / {
 	chosen {
@@ -72,11 +74,22 @@
 		
 		reboot_layer {
 		label = "REBOOT";
-		// note positions are mirrored.
+		// note positions are mirrored.  + I have a toggle for a "soft lock" layer by pressing where the L key is.
                 bindings = <
-        &trans	&none		&none	&none	&sys_reset	&none		&none	&sys_reset	&none	&none	&none		&none
-        &none	&none		&none	&none	&none		&none		&none	&none		&none	&none	&none		&none
-        &none	&bootloader	&none	&none	&none		&none		&none	&none		&none	&none	&bootloader &none
+        &trans	&none		&none	&none	&sys_reset	&none		&none	&sys_reset	&none	&none		&none		&none
+        &none	&none		&none	&none	&none		&none		&none	&none		&none	&tog 4	&none		&none
+        &none	&bootloader	&none	&none	&none		&none		&none	&none		&none	&none		&bootloader &none
+												&none   &none     &none    				&none	&none	&none
+            >;
+		};
+		
+		lock_layer {
+		label = "LOCKED";
+		// "locked" layer where I have nothing going on but a key to send this back to the default.  Bound to L for ease of use since I lock windows with GUI+L
+                bindings = <
+        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&none
+        &none	&none	&none	&none	&none	&none		&none	&none	&none	&tog 0	&none	&none
+        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none 	&none
 												&none   &none     &none    				&none	&none	&none
             >;
 		};
