@@ -3,10 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE 0
+#define QWERTY 0
 #define NUMSYM 1
 #define CONFIG 2
-#define RESET 3
+#define REBOOT 3
 
 / {
 	chosen {
@@ -39,7 +39,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-	        label = "BASE";
+	        label = "QWERTY";
                 bindings = <
 		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
          &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P			&kp BSPC
@@ -70,8 +70,8 @@
             >;
         };
 		
-		reset_layer {
-		label = "RESET";
+		reboot_layer {
+		label = "REBOOT";
 		// note positions are mirrored.
                 bindings = <
         &trans	&none		&none	&none	&reset	&none		&none	&reset	&none	&none	&none		&none
@@ -80,4 +80,5 @@
 												&none   &none     &none    				&none	&none	&none
             >;
 		};
+	};
 };
