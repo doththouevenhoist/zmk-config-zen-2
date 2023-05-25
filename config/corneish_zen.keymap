@@ -74,9 +74,9 @@
 		label = "REBOOT";
 		// note positions are mirrored.
                 bindings = <
-        &trans	&none		&none	&none	&reset	&none		&none	&reset	&none	&none	&none		&none
-        &none	&none		&none	&none	&none	&none		&none	&none	&none	&none	&none		&none
-        &none	&bootloader	&none	&none	&none	&none		&none	&none	&none	&none	&bootloader &none
+        &trans	&none		&none	&none	&sys_reset	&none		&none	&sys_reset	&none	&none	&none		&none
+        &none	&none		&none	&none	&none		&none		&none	&none		&none	&none	&none		&none
+        &none	&bootloader	&none	&none	&none		&none		&none	&none		&none	&none	&bootloader &none
 												&none   &none     &none    				&none	&none	&none
             >;
 		};
