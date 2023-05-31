@@ -53,9 +53,9 @@
         num_layer {
 			label = "NumSym";
                 bindings = <
-        &none  &kp N1	&kp N2	&kp N3 	&kp N4  &kp N5 	 		&kp N6  	&kp N7  	&kp N8	 	&kp N9		&kp N0		&trans
-        &trans	&none	&none 	&none 	&none 	&kp GRAVE		&kp SQT		&kp EQUAL	&kp FSLH	&none		&kp UP		&trans
-        &none	&none   &none	&none	&none   &kp BSLH		&kp MINUS	&kp LBKT	&kp RBKT	&kp LEFT	&kp DOWN   	&kp RIGHT
+        &none  &kp N1	&kp N2	&kp N3 	&kp N4  &kp N5 	 		&kp N6  	&kp N7  	&kp N8	 	&kp N9	&kp N0		&trans
+        &trans	&none	&none 	&none 	&none 	&kp GRAVE		&kp SQT		&kp EQUAL	&kp FSLH	&none	&kp PG_UP	&trans
+        &none	&none   &none	&none	&none   &kp BSLH		&kp MINUS	&kp LBKT	&kp RBKT	&none	&kp PG_DN   &trans
 									&trans	&trans	&trans						&trans	&trans	&none
             >;
         };
@@ -63,9 +63,9 @@
         config_layer {
 		label = "Functs";
                 bindings = <
-        &kp F1	&kp F2  &kp F3	&kp F4	&kp F5		&kp F6				&kp F7		&kp F8		&kp F9	&kp F10	&kp F11	&kp F12
-        &trans	&none	&none	&none	&kp C_PREV	&kp C_VOL_UP		&kp HOME	&kp PG_UP	&none	&none	&none	&trans
-        &none	&none	&none	&none	&kp C_NEXT	&kp C_VOL_DN		&kp END		&kp PG_DN	&none	&none	&none	&none 
+        &kp F1	&kp F2  &kp F3	&kp F4	&kp F5		&kp F6				&kp F7		&kp F8	&kp F9	&kp F10		&kp F11		&kp F12
+        &trans	&none	&none	&none	&kp C_PREV	&kp C_VOL_UP		&kp HOME	&none	&none	&none		&kp UP		&trans
+        &none	&none	&none	&none	&kp C_NEXT	&kp C_VOL_DN		&kp END		&none	&none	&kp LEFT	&kp DOWN	&kp RIGHT
 								&trans   &trans     &kp C_MUTE     				&none	&none	&trans
             >;
         };
