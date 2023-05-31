@@ -7,8 +7,7 @@
 #define QWERTY 0
 #define NUMSYM 1
 #define CONFIG 2
-#define REBOOT 3
-#define LOCKED 4
+#define SYSTEM 3
 
 / {
 	chosen {
@@ -41,57 +40,47 @@
         compatible = "zmk,keymap";
 
         default_layer {
-	        label = "QWERTY";
+	        label = "Base";
                 bindings = <
 		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
-         &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P			&kp BSPC
-		 // edited right half home row mods to GASC instead of CASG (will make locking easier as well I guess?)
-         &kp LSHFT	&kp A 	&kp S	&kp D 	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RALT K 	&hm RSHFT L &hm RCTRL SEMI  &kp RSHFT 
-         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    	&kp DEL
+         &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P		&kp BSPC
+		 // removed all home row mods except for windows (RGUI)
+         &kp LSHFT	&kp A 	&kp S	&kp D 	&kp F 	&kp G 		&kp H   &hm RGUI J	&kp K 		&kp L 		&kp SEMI  	&kp RSHFT 
+         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
 					&kp LALT	&kp LCTRL	&kp SPACE						&kp RET		&mo 1	&mo 2	
             >;
         };
 
         num_layer {
-			label = "NUMSYM";
+			label = "NumSym";
                 bindings = <
-        &none  &kp N1	&kp N2	&kp N3 	&kp N4  	&kp N5 	 	&kp N6  	&kp N7  	&kp N8	 	&kp N9		&kp N0		&trans
-        &trans	&none	&none 	&none 	&kp BSLH 	&none		&kp SQT		&kp EQUAL	&kp FSLH	&none		&kp GRAVE	&trans
-        &none	&none   &none	&none	&none   	&none		&kp MINUS	&kp LBKT	&kp RBKT	&kp BSLH	&none   	&none
+        &none  &kp N1	&kp N2	&kp N3 	&kp N4  	&kp N5 	 		&kp N6  	&kp N7  	&kp N8	 	&kp N9		&kp N0		&trans
+        &trans	&none	&none 	&none 	&kp BSLH 	&kp PSCRN		&kp SQT		&kp EQUAL	&kp FSLH	&none		&kp GRAVE	&trans
+        &none	&none   &none	&none	&none   	&none			&kp MINUS	&kp LBKT	&kp RBKT	&kp BSLH	&none   	&none
 									&trans	&trans	&trans						&trans	&trans	&none
             >;
         };
 
         config_layer {
-		label = "CONFIG";
+		label = "Funct";
                 bindings = <
-        &kp F1		&kp F2  		&kp F3		 &kp F4	&kp F5	&kp F6		&kp F7		&kp F8		&kp F9			&kp F10		&kp F11		&kp F12
-        &trans	 	&bt BT_SEL 0	&bt BT_SEL 1 &none	&none	&none 		&kp HOME	&kp PG_UP	&kp C_VOL_UP	&none		&kp UP		&trans
-        &bt BT_CLR	&out OUT_TOG	&none		 &none	&none	&none		&kp END		&kp PG_DN	&kp C_VOL_DN	&kp LEFT	&kp DOWN	&kp RIGHT 
+        &kp F1	&kp F2  &kp F3	&kp F4	&kp F5		&kp F6				&kp F7		&kp F8		&kp F9	&kp F10		&kp F11		&kp F12
+        &trans	&none	&none	&none	&kp C_PREV	&kp C_VOL_UP		&kp HOME	&kp PG_UP	&none	&none		&kp UP		&trans
+        &none	&none	&none	&none	&kp C_NEXT	&kp C_VOL_DN		&kp END		&kp PG_DN	&none	&kp LEFT	&kp DOWN	&kp RIGHT 
 												&trans   &trans     &kp C_MUTE     				&none	&none	&trans
             >;
         };
 		
-		reboot_layer {
-		label = "REBOOT";
-		// note positions are mirrored.  + I have a toggle for a "soft lock" layer by pressing where the L key is.
+		system_layer {
+		label = "System";
+		// note positions are mirrored.  
                 bindings = <
-        &trans	&none		&none	&none	&sys_reset	&none		&none	&sys_reset	&none	&none	&none		&none
-        &none	&none		&none	&none	&none		&none		&none	&none		&none	&tog 4	&none		&none
-        &none	&bootloader	&none	&none	&none		&none		&none	&none		&none	&none	&bootloader &none
-												&none   &none     &none    				&none	&none	&none
+        &trans		&none		&none	&none	&sys_reset		&none				&none	&sys_reset	&none	&none	&none		&none
+        &bt BT_CLR	&none		&none	&none	&bt BT_SEL 0	&bt BT_SEL 1		&none	&none		&none	&none	&none		&none
+        &none		&bootloader	&none	&none	&none			&out OUT_TOG		&none	&none		&none	&none	&bootloader &none
+												&none  &none	&none    				&none	&none	&none
             >;
 		};
 		
-		lock_layer {
-		label = "LOCKED";
-		// "locked" layer where I have nothing going on but a key to send this back to the default.  Bound to L for ease of use since I lock windows with GUI+L
-                bindings = <
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&none
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&tog 0	&none	&none
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none 	&none
-												&none   &none     &none    				&none	&none	&none
-            >;
-		};
 	};
 };
