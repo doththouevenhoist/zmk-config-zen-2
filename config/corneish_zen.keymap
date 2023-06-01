@@ -140,14 +140,14 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N3      ┼     N2      ┼     N1      ┼      .      ┼      /      ┼             ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├             ┼             ┼             ┤ ├    ENTER    ┼    Base     ┼     N0      ┤
+      //                                           ├             ┼     Base    ┼             ┤ ├    ENTER    ┼             ┼     N0      ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
 	bindings = <
         &none	&none	&none	&none	&none	&kp KP_NUM	&kp KP_N9	&kp KP_N8	&kp KP_N7	&none	&kp ASTERISK	&kp MINUS
         &none	&none	&none	&none	&none	&none		&kp KP_N6	&kp KP_N5	&kp KP_N4	&none	&none			&kp PLUS
         &none	&none	&none	&none	&none	&none		&kp KP_N3	&kp KP_N2	&kp KP_N1	&kp DOT	&kp FSLH		&none
-							&none  &none	&none    				&kp RET		&tog 0		&kp KP_N0
+							&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
             >;
 		};
 	};
