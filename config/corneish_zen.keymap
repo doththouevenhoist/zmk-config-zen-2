@@ -42,7 +42,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <225>;
 			//in order: single press and hold and double tap
-            bindings = <&mo 1>, <&tog 4>;
+            bindings = <&mo 2>, <&tog 4>;
         };
 		
 		// THIS IS NOT MERGED INTO ZMK MAIN YET? 
@@ -70,7 +70,7 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1/4  ┼   MOlayer2  ┤
+      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼  MOlayer2/4 ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
                 bindings = <
@@ -78,7 +78,7 @@
          &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P		&kp BSPC
          &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &hm RALT L 	&kp SEMI  	&kp RSHFT 
          &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
-					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&td_mt	&mo 2	
+					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&td_mt	
             >;
         };
 
