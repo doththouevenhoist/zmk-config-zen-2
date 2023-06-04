@@ -177,7 +177,7 @@
 
 	bindings = <
         &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&none
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&tog 0
+        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&to 0
         &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none 	&none
 												&none  &none	&none    	&none	&none	&none
             >;
