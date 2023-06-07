@@ -42,7 +42,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <175>;
 			//in order: single press and hold and double tap
-            bindings = <&mo 2>, <&tog 4>;
+            bindings = <&kp Z>, <&tog 4>;
         };
 		
 		// THIS IS NOT MERGED INTO ZMK MAIN YET? 
@@ -68,17 +68,17 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼   RALT/L    ┼      ;      ┼   RSHIFT    ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
+      // ├     TAB     ┼   Z/layer4  ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼  MOlayer2/4 ┤
+      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼    layer2   ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
                 bindings = <
 		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
          &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P		&kp BSPC
          &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &hm RALT L 	&kp SEMI  	&kp RSHFT 
-         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
-					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&td_mt	
+         &kp TAB  	&td_mt	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
+					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&mo 2	
             >;
         };
 
@@ -128,7 +128,7 @@
 	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       // ├    Base     ┼             ┼             ┼             ┼  Soft Reset ┼             ┤ ├             ┼ Soft Reset  ┼             ┼             ┼             ┼             ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼  BT CLEAR   ┼    BT 0     ┼     BT 1    ┤ ├             ┼             ┼             ┼    LOCK?    ┼             ┼             ┤
+      // ├             ┼             ┼             ┼  BT CLEAR   ┼    BT 0     ┼     BT 1    ┤ ├             ┼             ┼             ┼    LOCK     ┼             ┼             ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├             ┼  BOOTLOADER ┼             ┼             ┼             ┼  Output Tog ┤ ├             ┼             ┼             ┼             ┼  BOOTLOADER ┼             ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
