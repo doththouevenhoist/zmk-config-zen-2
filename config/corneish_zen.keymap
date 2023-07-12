@@ -109,7 +109,7 @@
         &kp F1	&kp F2  &kp F3	&kp F4		&kp F5	&kp F6				&kp F7		&kp F8		&kp F9	&kp F10		&kp F11		&kp F12
         &trans	&none	&none	&kp C_PREV	&none	&kp C_VOL_UP		&kp HOME	&kp PG_UP	&none	&none		&kp UP		&trans
         &none	&none	&none	&kp C_NEXT	&none	&kp C_VOL_DN		&kp END		&kp PG_DN	&none	&kp LEFT	&kp DOWN	&kp RIGHT
-								&trans   &trans     &kp C_MUTE     				&kp none	&none	&trans
+								&trans   &trans     &kp C_MUTE     				&none	&none	&trans
             >;
         };
 		
