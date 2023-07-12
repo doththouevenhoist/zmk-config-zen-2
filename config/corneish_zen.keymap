@@ -19,7 +19,9 @@
 };
 
 &lt {
-    tapping_term_ms = <150>;
+    tapping_term_ms = <250>;
+	quick-tap-ms = <150>;
+	global-quick-tap;
     flavor = "tap-preferred";
 };
 	
@@ -56,7 +58,7 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼   RALT/L    ┼      ;      ┼   RSHIFT    ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
+      // ├     TAB     ┼   z/layer4  ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
       //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼    layer2   ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
@@ -65,7 +67,7 @@
 		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
          &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P		&kp BSPC
          &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &hm RALT L 	&kp SEMI  	&kp RSHFT 
-         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
+         &kp TAB  	&td_mt	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
 					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&mo 2	
             >;
         };
@@ -100,14 +102,14 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├             ┼             ┼             ┼  MediaNext  ┼             ┼   Vol Down  ┤ ├    END      ┼   PAGEDN    ┼             ┼    LEFT     ┼    DOWN     ┼    RIGHT    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼   Vol Mute  ┤ ├ PLAY/PAUSE  ┼             ┼     Base    ┤
+      //                                           ├     LALT    ┼    LCTRL    ┼   Vol Mute  ┤ ├             ┼             ┼     Base    ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
 	bindings = <
         &kp F1	&kp F2  &kp F3	&kp F4		&kp F5	&kp F6				&kp F7		&kp F8		&kp F9	&kp F10		&kp F11		&kp F12
         &trans	&none	&none	&kp C_PREV	&none	&kp C_VOL_UP		&kp HOME	&kp PG_UP	&none	&none		&kp UP		&trans
         &none	&none	&none	&kp C_NEXT	&none	&kp C_VOL_DN		&kp END		&kp PG_DN	&none	&kp LEFT	&kp DOWN	&kp RIGHT
-								&trans   &trans     &kp C_MUTE     				&kp C_PP	&none	&trans
+								&trans   &trans     &kp C_MUTE     				&kp none	&none	&trans
             >;
         };
 		
