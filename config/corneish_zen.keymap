@@ -35,7 +35,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
 			quick-tap-ms = <125>;
-			global-quick-tap;
         };
 		
         td_mt: tap_dance_mod_tap {
