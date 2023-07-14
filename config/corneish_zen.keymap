@@ -44,7 +44,6 @@
             tapping-term-ms = <175>;
 			//in order: single press and hold and double tap
             bindings = <&kp Z>, <&tog 4>;
-			global-quick-tap;
         };
 	};
 
