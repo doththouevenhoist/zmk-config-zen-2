@@ -19,10 +19,10 @@
 };
 
 &lt {
-    tapping_term_ms = <400>;
-	quick-tap-ms = <125>;
-	global-quick-tap;
+    tapping_term_ms = <250>;
+	quick-tap-ms = <175>;
     flavor = "tap-preferred";
+	global-quick-tap;
 };
 	
 / {
@@ -31,10 +31,11 @@
             compatible = "zmk,behavior-hold-tap";
             label = "hm_mods";
             #binding-cells = <2>;
-            tapping_term_ms = <225>;
+            tapping_term_ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
 			quick-tap-ms = <125>;
+			global-quick-tap;
+            bindings = <&kp>, <&kp>;
         };
 		
         td_mt: tap_dance_mod_tap {
