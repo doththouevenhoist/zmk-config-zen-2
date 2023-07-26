@@ -7,7 +7,7 @@
 #define NUMSYM 1
 #define CONFIG 2
 #define SYSTEM 3
-#define NUMPAD 4
+#define GAMING 4
 #define LOCKED 5
 
 / {
@@ -43,7 +43,7 @@
             label = "TAP_DANCE_MOD_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <175>;
-			//in order: single press and hold and double tap
+			//in order: single press, double tap
             bindings = <&kp Z>, <&tog 4>;
         };
 	};
@@ -58,7 +58,7 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼   RALT/L    ┼      ;      ┼   RSHIFT    ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├     TAB     ┼   z/layer4  ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
+      // ├     TAB     ┼   z/game    ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
       //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼    layer2   ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
@@ -133,8 +133,38 @@
             >;
 		};
 		
-		numpad_layer {
-		label = "NumPad";
+		gaming_layer {
+		label = "Game";
+		// using default key bindings for Witcher 3 Enhanced Edition Redux but remapped most commonly used options on solely the left half for easy use
+		// mouse5 is interact, mouse4 is night vision so no need to bind those.
+		// E: witcher senses (out of combat)/parrying (combat), WASD: self-explanatory
+		// 6: draw/sheathe steel, 7: draw/sheathe silver
+		// 1: aard (knockback), 2: igni (fire) - will be the 2 most commonly used witcher signs anyway, 3-5: other less used witcher signs
+		// LCTRL (mid attack distance mod) / LALT (roll) / LSHIFT (sprint/long attack distance mod)/ SPACE (dodge/swim surface) in their usual positions
+		// C: access quick item menu
+		// X: call/stop horse, V: swim dive, `: crossbow/bomb
+		// R: consumable slot 1, F: consumable slot 2, I: inventory (and can click through the skill trees and all those other menus from there)
+		// ESC: menu, F5: Quicksave, F1: read item
+	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      // ├      6      ┼      7      ┼      W      ┼      E      ┼      1      ┼      2      ┤ ├             ┼             ┼             ┼     F1      ┼      F5     ┼     ESC     ┤
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      C      ┼      `      ┤ ├      R      ┼      F      ┼      I      ┼             ┼             ┼             ┤
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      // ├             ┼      3      ┼      4      ┼      5      ┼      X      ┼      V      ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
+      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+      //                                           ├    LALT     ┼    LCTRL    ┼    SPACE    ┤ ├             ┼             ┼    base     ┤
+      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+	bindings = <
+        &kp N6		&kp N7	&kp W	&kp E	&kp N1	&kp N2			&none	&none	&none	&kp F1	&kp F5	&kp ESC
+        &kp LSHFT	&kp A	&kp S	&kp D	&kp C 	&kp	GRAVE		&kp R	&kp F	&kp I	&none	&none	&none
+        &none		&kp N3	&kp N4	&kp N5	&kp X	&kp V			&none	&none	&none	&none	&none	&none
+								&kp LALT  	&kp LCTRL	&kp SPACE    		&none	&none	&to 0
+            >;
+		};
+		
+		//numpad_layer {
+		//label = "NumPad";
 	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       // ├     ESC     ┼             ┼             ┼             ┼             ┼   NUMLOCK   ┤ ├     N7      ┼     N8      ┼     N9      ┼             ┼      *      ┼  BACKSPACE  ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -145,13 +175,13 @@
       //                                           ├             ┼     Base    ┼             ┤ ├    ENTER    ┼             ┼     N0      ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
-	bindings = <
-        &kp ESC	&none	&none	&none	&none	&kp KP_NUM	&kp KP_N7	&kp KP_N8	&kp KP_N9	&none	&kp ASTERISK	&kp BSPC
-        &none	&none	&none	&none	&none	&none		&kp KP_N4	&kp KP_N5	&kp KP_N6	&none	&none			&kp MINUS
-        &none	&none	&none	&none	&none	&none		&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp DOT	&kp FSLH		&kp PLUS
-							&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
-            >;
-		};
+	//bindings = <
+    //    &kp ESC	&none	&none	&none	&none	&kp KP_NUM	&kp KP_N7	&kp KP_N8	&kp KP_N9	&none	&kp ASTERISK	&kp BSPC
+    //    &none	&none	&none	&none	&none	&none		&kp KP_N4	&kp KP_N5	&kp KP_N6	&none	&none			&kp MINUS
+    //    &none	&none	&none	&none	&none	&none		&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp DOT	&kp FSLH		&kp PLUS
+	//						&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
+    //        >;
+	//	};
 		
 		locked_layer {
 		label = "Lock";
