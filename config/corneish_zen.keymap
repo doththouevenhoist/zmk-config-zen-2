@@ -139,26 +139,26 @@
 		// mouse5 is interact, mouse4 is night vision so no need to bind those.
 		// E: witcher senses (out of combat)/parrying (combat), WASD: self-explanatory
 		// 6: draw/sheathe steel, 7: draw/sheathe silver
-		// 1: aard (knockback), 2: igni (fire) - will be the 2 most commonly used witcher signs anyway, 3-5: other less used witcher signs
+		// 1: select aard (knockback), 2: igni (fire) - will be the 2 most commonly used witcher signs anyway, 3-5: other less used witcher signs
 		// LCTRL (mid attack distance mod) / LALT (roll) / LSHIFT (sprint/long attack distance mod)/ SPACE (dodge/swim surface) in their usual positions
 		// C: access quick item menu
 		// X: call/stop horse, V: swim dive, `: crossbow/bomb
 		// R: consumable slot 1, F: consumable slot 2, I: inventory (and can click through the skill trees and all those other menus from there)
-		// ESC: menu, F5: Quicksave, F1: read item
+		// ESC: menu, F5: Quicksave, F1: read item/set new quest target
 	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├      6      ┼      7      ┼      W      ┼      E      ┼      1      ┼      2      ┤ ├             ┼             ┼             ┼     F1      ┼      F5     ┼     ESC     ┤
+      // ├      6      ┼      7      ┼      W      ┼      E      ┼      1      ┼      2      ┤ ├     F1      ┼     M       ┼             ┼             ┼      F5     ┼     ESC     ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      C      ┼      `      ┤ ├      R      ┼      F      ┼      I      ┼             ┼             ┼             ┤
+      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      I      ┼      Q      ┤ ├      R      ┼      F      ┼             ┼             ┼             ┼             ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼      3      ┼      4      ┼      5      ┼      X      ┼      V      ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
+      // ├             ┼      3      ┼      4      ┼      5      ┼      C      ┼      `      ┤ ├      X      ┼      V      ┼             ┼             ┼             ┼             ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
       //                                           ├    LALT     ┼    LCTRL    ┼    SPACE    ┤ ├             ┼             ┼    base     ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
 	bindings = <
-        &kp N6		&kp N7	&kp W	&kp E	&kp N1	&kp N2			&none	&none	&none	&kp F1	&kp F5	&kp ESC
-        &kp LSHFT	&kp A	&kp S	&kp D	&kp C 	&kp	GRAVE		&kp R	&kp F	&kp I	&none	&none	&none
-        &none		&kp N3	&kp N4	&kp N5	&kp X	&kp V			&none	&none	&none	&none	&none	&none
+        &kp N6		&kp N7	&kp W	&kp E	&kp N1	&kp N2			&kp F1	&kp M	&none	&none	&kp F5	&kp ESC
+        &kp LSHFT	&kp A	&kp S	&kp D	&kp I 	&kp	Q			&kp R	&kp F	&none	&none	&none	&none
+        &none		&kp N3	&kp N4	&kp N5	&kp C	&kp GRAVE		&kp X	&kp V	&none	&none	&none	&none
 								&kp LALT  	&kp LCTRL	&kp SPACE    		&none	&none	&to 0
             >;
 		};
