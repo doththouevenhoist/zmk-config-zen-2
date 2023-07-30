@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_MOD_TAP";
             #binding-cells = <0>;
-            tapping-term-ms = <120>;
+            tapping-term-ms = <150>;
 			//in order: single press, double tap
             bindings = <&kp Z>, <&tog 4>;
         };
