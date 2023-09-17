@@ -56,7 +56,7 @@
 	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       // ├ ESC/layer3  ┼      Q      ┼      W      ┼      E      ┼      R      ┼      T      ┤ ├      Y      ┼      U      ┼      I      ┼      O      ┼      P      ┼  BACKSPACE  ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼   RALT/L    ┼      ;      ┼   RSHIFT    ┤
+      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼      L      ┼      ;      ┼   RSHIFT    ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -65,9 +65,9 @@
 
                 bindings = <
 		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
-         &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  		&kp P		&kp BSPC
-         &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &hm RALT L 	&kp SEMI  	&kp RSHFT 
-         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT 	&kp FSLH    &kp DEL
+         &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  	&kp P		&kp BSPC
+         &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &kp L 	&kp SEMI  	&kp RSHFT 
+         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT &kp FSLH    &kp DEL
 					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&mo 2	
             >;
         };
