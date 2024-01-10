@@ -98,18 +98,18 @@
 	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       // ├      F1     ┼      F2     ┼      F3     ┼      F4     ┼      F5     ┼      F6     ┤ ├     F7      ┼     F8      ┼      F9     ┼    F10      ┼    F11      ┼     F12     ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼    INSERT   ┼             ┼  MediaPrev  ┼             ┼    Vol Up   ┤ ├    HOME     ┼             ┼             ┼             ┼     UP      ┼   RSHIFT    ┤
+      // ├   LSHIFT    ┼    INSERT   ┼             ┼  MediaPrev  ┼             ┼    Vol Up   ┤ ├    PGUP     ┼             ┼             ┼             ┼     UP      ┼   RSHIFT    ┤
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼  MediaNext  ┼             ┼    Vol Dn   ┤ ├    END      ┼             ┼             ┼    LEFT     ┼    DOWN     ┼    RIGHT    ┤
+      // ├             ┼             ┼             ┼  MediaNext  ┼             ┼    Vol Dn   ┤ ├    PGDN     ┼             ┼             ┼    LEFT     ┼    DOWN     ┼    RIGHT    ┤
       // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼   Vol Mute  ┤ ├    PGUP     ┼    PGDN     ┼     Base    ┤
+      //                                           ├     LALT    ┼    LCTRL    ┼   Vol Mute  ┤ ├    HOME     ┼    END      ┼     Base    ┤
       //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
 	bindings = <
         &kp F1	&kp F2  &kp F3	&kp F4		&kp F5	&kp F6				&kp F7		&kp F8	&kp F9	&kp F10		&kp F11		&kp F12
-        &trans	&kp INS	&none	&kp C_PREV	&none	&kp C_VOL_UP		&kp HOME	&none	&none	&none		&kp UP		&trans
-        &none	&none	&none	&kp C_NEXT	&none	&kp C_VOL_DN		&kp END		&none	&none	&kp LEFT	&kp DOWN	&kp RIGHT
-								&trans   &trans     &kp C_MUTE     				&kp PG_UP	&kp PG_DN	&trans
+        &trans	&kp INS	&none	&kp C_PREV	&none	&kp C_VOL_UP		&kp PG_UP	&none	&none	&none		&kp UP		&trans
+        &none	&none	&none	&kp C_NEXT	&none	&kp C_VOL_DN		&kp PG_DN	&none	&none	&kp LEFT	&kp DOWN	&kp RIGHT
+								&trans   &trans     &kp C_MUTE     				&kp HOME	&kp END	&trans
             >;
         };
 		
