@@ -1,6 +1,6 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define QWERTY 0
@@ -11,198 +11,204 @@
 #define LOCKED 5
 
 / {
-	chosen {
-    zmk,matrix_transform = &default_transform;
-	//only relevant for 3x5 keyboards
-    //zmk,matrix_transform = &five_column_transform;
-  };
+    chosen {
+        zmk,matrix_transform = &default_transform;
+
+        //only relevant for 3x5 keyboards
+        //zmk,matrix_transform = &five_column_transform;
+    };
 };
 
 &lt {
     tapping_term_ms = <250>;
-	quick-tap-ms = <175>;
+    quick-tap-ms = <175>;
     flavor = "tap-preferred";
-	global-quick-tap;
+    global-quick-tap;
 };
-	
+
 / {
-	behaviors {
+    behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "hm_mods";
             #binding-cells = <2>;
             tapping_term_ms = <200>;
             flavor = "tap-preferred";
-			quick-tap-ms = <125>;
-			global-quick-tap;
+            quick-tap-ms = <125>;
+            global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
-		
+
         td_mt: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_MOD_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-			//in order: single press, double tap
+
+            //in order: single press, double tap
+
             bindings = <&kp Z>, <&tog 4>;
         };
-	};
+    };
 
-	keymap {
+    keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-	        label = "Base";
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├ ESC/layer3  ┼      Q      ┼      W      ┼      E      ┼      R      ┼      T      ┤ ├      Y      ┼      U      ┼      I      ┼      O      ┼      P      ┼  BACKSPACE  ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼      L      ┼      ;      ┼   RSHIFT    ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼    layer2   ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+            label = "Base";
 
-                bindings = <
-		 // ESC now acts as a layer-tap: it specifically has ONLY bootloader and soft reset keys so I don't keep accidentally hitting them when I switch to config
-         &lt 3 ESC 	&kp Q   &kp W   &kp E	&kp R 	&kp T  		&kp Y   &kp U		&kp I		&kp O  	&kp P		&kp BSPC
-         &kp LSHFT	&kp A 	&kp S	&kp D	&kp F 	&kp G 		&kp H   &hm RGUI J	&hm RCTRL K &kp L 	&kp SEMI  	&kp RSHFT 
-         &kp TAB  	&kp Z	&kp X   &kp C	&kp V 	&kp B		&kp N   &kp M		&kp COMMA	&kp DOT &kp FSLH    &kp DEL
-					&kp LALT	&kp LCTRL	&kp SPACE					&kp RET		&mo 1	&mo 2	
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├ ESC/layer3  ┼      Q      ┼      W      ┼      E      ┼      R      ┼      T      ┤ ├      Y      ┼      U      ┼      I      ┼      O      ┼      P      ┼  BACKSPACE  ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      F      ┼      G      ┤ ├      H      ┼    RWIN/J   ┼   RCTRL/K   ┼      L      ┼      ;      ┼   RSHIFT    ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├     TAB     ┼      Z      ┼      X      ┼      C      ┼      V      ┼      B      ┤ ├      N      ┼      M      ┼      ,      ┼      .      ┼      /      ┼   DELETE    ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼   layer1    ┼    layer2   ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&lt 3 ESC  &kp Q  &kp W  &kp E     &kp R      &kp T        &kp Y    &kp U       &kp I        &kp O    &kp P     &kp BSPC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp H    &hm RGUI J  &hm RCTRL K  &kp L    &kp SEMI  &kp RSHFT
+&kp TAB    &kp Z  &kp X  &kp C     &kp V      &kp B        &kp N    &kp M       &kp COMMA    &kp DOT  &kp FSLH  &kp DEL
+                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &mo 1       &mo 2
             >;
         };
 
-
         num_layer {
-			label = "NumSym";	
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├             ┼      1      ┼     2/@     ┼      3      ┼      4      ┼      5      ┤ ├      6      ┼      7      ┼      8      ┼      9      ┼      0      ┼  BACKSPACE  ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼             ┼             ┼             ┼             ┼      `      ┤ ├      '      ┼      =      ┼             ┼             ┼      ;      ┼   RSHIFT    ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼      \      ┤ ├      -      ┼      [      ┼      ]      ┼      .      ┼      /      ┼   DELETE    ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼     Base    ┼             ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-	  
-	bindings = <
-        &none  &kp N1	&kp N2	&kp N3 	&kp N4  &kp N5 	 		&kp N6  	&kp N7  	&kp N8	 	&kp N9	&kp N0	&trans
-        &trans	&none	&none 	&none 	&none 	&kp GRAVE		&kp SQT		&kp EQUAL	&none		&none	&trans	&trans
-        &none	&none   &none	&none	&none   &kp BSLH		&kp MINUS	&kp LBKT	&kp RBKT	&trans	&trans	&trans
-									&trans	&trans	&trans						&trans	&trans	&none
+            label = "NumSym";
+
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├             ┼      1      ┼     2/@     ┼      3      ┼      4      ┼      5      ┤ ├      6      ┼      7      ┼      8      ┼      9      ┼      0      ┼  BACKSPACE  ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├   LSHIFT    ┼             ┼             ┼             ┼             ┼      `      ┤ ├      '      ┼      =      ┼             ┼             ┼      ;      ┼   RSHIFT    ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼             ┼             ┼             ┼             ┼      \      ┤ ├      -      ┼      [      ┼      ]      ┼      .      ┼      /      ┼   DELETE    ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├     LALT    ┼    LCTRL    ┼    SPACE    ┤ ├    ENTER    ┼     Base    ┼             ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&none   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6     &kp N7     &kp N8    &kp N9  &kp N0  &trans
+&trans  &none   &none   &none   &none   &kp GRAVE    &kp SQT    &kp EQUAL  &none     &none   &trans  &trans
+&none   &none   &none   &none   &none   &kp BSLH     &kp MINUS  &kp LBKT   &kp RBKT  &trans  &trans  &trans
+                        &trans  &trans  &trans       &trans     &trans     &none
             >;
         };
 
         config_layer {
-		label = "Functs";
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├      F1     ┼      F2     ┼      F3     ┼      F4     ┼      F5     ┼      F6     ┤ ├     F7      ┼     F8      ┼      F9     ┼    F10      ┼    F11      ┼     F12     ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼    INSERT   ┼             ┼  MediaPrev  ┼  MediaNext  ┼    Vol Up   ┤ ├    PGUP     ┼    HOME     ┼             ┼             ┼     UP      ┼   RSHIFT    ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼    Vol Dn   ┤ ├    PGDN     ┼    END      ┼             ┼    LEFT     ┼    DOWN     ┼    RIGHT    ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├     LALT    ┼    LCTRL    ┼             ┤ ├    Mute     ┼             ┼     Base    ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+            label = "Functs";
 
-	bindings = <
-        &kp F1	&kp F2  &kp F3	&kp F4		&kp F5		&kp F6				&kp F7		&kp F8		&kp F9	&kp F10		&kp F11		&kp F12
-        &trans	&kp INS	&none	&kp C_PREV	&kp C_NEXT	&kp C_VOL_UP		&kp PG_UP	&kp HOME	&none	&none		&kp UP		&trans
-        &none	&none	&none	&none		&none		&kp C_VOL_DN		&kp PG_DN	&kp END		&none	&kp LEFT	&kp DOWN	&kp RIGHT
-								&trans   &trans     &none    					&kp C_MUTE	&none	&trans
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├      F1     ┼      F2     ┼      F3     ┼      F4     ┼      F5     ┼      F6     ┤ ├     F7      ┼     F8      ┼      F9     ┼    F10      ┼    F11      ┼     F12     ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├   LSHIFT    ┼    INSERT   ┼             ┼  MediaPrev  ┼  MediaNext  ┼    Vol Up   ┤ ├    PGUP     ┼    HOME     ┼             ┼             ┼     UP      ┼   RSHIFT    ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼             ┼             ┼             ┼             ┼    Vol Dn   ┤ ├    PGDN     ┼    END      ┼             ┼    LEFT     ┼    DOWN     ┼    RIGHT    ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├     LALT    ┼    LCTRL    ┼             ┤ ├    Mute     ┼             ┼     Base    ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&kp F1  &kp F2   &kp F3  &kp F4      &kp F5      &kp F6          &kp F7     &kp F8    &kp F9  &kp F10   &kp F11   &kp F12
+&trans  &kp INS  &none   &kp C_PREV  &kp C_NEXT  &kp C_VOL_UP    &kp PG_UP  &kp HOME  &none   &none     &kp UP    &trans
+&none   &none    &none   &none       &none       &kp C_VOL_DN    &kp PG_DN  &kp END   &none   &kp LEFT  &kp DOWN  &kp RIGHT
+                         &trans      &trans      &kp C_MUTE      &none      &none     &trans
             >;
         };
-		
-		system_layer {
-		label = "System";
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├    Base     ┼             ┼             ┼             ┼  Soft Reset ┼             ┤ ├             ┼ Soft Reset  ┼             ┼             ┼             ┼             ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼  BT CLEAR   ┼    BT 0     ┼     BT 1    ┤ ├             ┼             ┼             ┼    LOCK     ┼             ┼             ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼  BOOTLOADER ┼             ┼             ┼             ┼  Output Tog ┤ ├             ┼             ┼             ┼             ┼  BOOTLOADER ┼             ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├             ┼             ┼             ┤ ├             ┼             ┼             ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
-	bindings = <
-        &trans	&none		&none	&none		&sys_reset		&none				&none	&sys_reset	&none	&none	&none		&none
-        &none	&none		&none	&bt BT_CLR	&bt BT_SEL 0	&bt BT_SEL 1		&none	&none		&none	&tog 5	&none		&none
-        &none	&bootloader	&none	&none		&none			&out OUT_TOG		&none	&none		&none	&none	&bootloader &none
-												&none  &none	&none    				&none	&none	&none
+        system_layer {
+            label = "System";
+
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├    Base     ┼             ┼             ┼             ┼  Soft Reset ┼             ┤ ├             ┼ Soft Reset  ┼             ┼             ┼             ┼             ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼             ┼             ┼  BT CLEAR   ┼    BT 0     ┼     BT 1    ┤ ├             ┼             ┼             ┼    LOCK     ┼             ┼             ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼  BOOTLOADER ┼             ┼             ┼             ┼  Output Tog ┤ ├             ┼             ┼             ┼             ┼  BOOTLOADER ┼             ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├             ┼             ┼             ┤ ├             ┼             ┼             ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&trans  &none        &none  &none       &sys_reset    &none           &none  &sys_reset  &none  &none   &none        &none
+&none   &none        &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1    &none  &none       &none  &tog 5  &none        &none
+&none   &bootloader  &none  &none       &none         &out OUT_TOG    &none  &none       &none  &none   &bootloader  &none
+                            &none       &none         &none           &none  &none       &none
             >;
-		};
-		
-		gaming_layer {
-		label = "Game";
-		// using default key bindings for Witcher 3 Enhanced Edition Redux but remapped most commonly used options on the left half for easy use
-		// mouse5 is interact, mouse4 is night vision so no need to bind those.  mouse3 rebound to shoot bomb/arrow.
-		// E: witcher senses (out of combat)/parrying (combat), WASD: self-explanatory
-		// 6: draw/sheathe steel, 7: draw/sheathe silver
-		// 1: select aard (knockback), 2: igni (fire) - will be the 2 most commonly used witcher signs anyway, 3-5: other less used witcher signs
-		// note Q is now unnecessary since signs are quick cast
-		// LCTRL (mid attack distance mod) / LALT (roll) / LSHIFT (sprint/long attack distance mod)/ SPACE (dodge/swim surface) in their usual positions
-		// tab: access quick item menu
-		// X: call/stop horse, V: swim dive, `: crossbow/bomb choose
-		// RFTY: consumable slot 1-4, I: inventory (and can click through the skill trees and all those other menus from there)
-		// ESC: menu, F5: Quicksave, F1: read item/set new quest target
-		// N: meditate
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├      6      ┼      7      ┼      W      ┼      E      ┼      1      ┼      2      ┤ ├     F1      ┼      M      ┼      I      ┼             ┼     F5      ┼     ESC     ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      3      ┼      4      ┤ ├      `      ┼      X      ┼      V      ┼             ┼     UP      ┼             ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├    TAB      ┼      R      ┼      F      ┼      T      ┼     	Y      ┼      5      ┤ ├      N      ┼             ┼             ┼     LEFT    ┼    DOWN     ┼    RIGHT    ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├    LALT     ┼    LCTRL    ┼    SPACE    ┤ ├   ENTER     ┼             ┼    base     ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+        };
 
-	bindings = <
-        &kp N6		&kp N7	&kp W	&kp E	&kp N1	&kp N2			&kp F1		&kp M	&kp I	&none		&kp F5		&kp ESC
-        &kp LSHFT	&kp A	&kp S	&kp D	&kp N3 	&kp N4			&kp GRAVE	&kp X	&kp V	&none		&kp UP		&none
-        &kp TAB		&kp R	&kp F	&kp T	&kp Y	&kp N5			&kp N		&none	&none	&kp LEFT	&kp DOWN	&kp RIGHT
-								&kp LALT  	&kp LCTRL	&kp SPACE    		&kp RET	&none	&to 0
+        gaming_layer {
+            label = "Game";
+
+            // using default key bindings for Witcher 3 Enhanced Edition Redux but remapped most commonly used options on the left half for easy use
+            // mouse5 is interact, mouse4 is night vision so no need to bind those.  mouse3 rebound to shoot bomb/arrow.
+            // E: witcher senses (out of combat)/parrying (combat), WASD: self-explanatory
+            // 6: draw/sheathe steel, 7: draw/sheathe silver
+            // 1: select aard (knockback), 2: igni (fire) - will be the 2 most commonly used witcher signs anyway, 3-5: other less used witcher signs
+            // note Q is now unnecessary since signs are quick cast
+            // LCTRL (mid attack distance mod) / LALT (roll) / LSHIFT (sprint/long attack distance mod)/ SPACE (dodge/swim surface) in their usual positions
+            // tab: access quick item menu
+            // X: call/stop horse, V: swim dive, `: crossbow/bomb choose
+            // RFTY: consumable slot 1-4, I: inventory (and can click through the skill trees and all those other menus from there)
+            // ESC: menu, F5: Quicksave, F1: read item/set new quest target
+            // N: meditate
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├      6      ┼      7      ┼      W      ┼      E      ┼      1      ┼      2      ┤ ├     F1      ┼      M      ┼      I      ┼             ┼     F5      ┼     ESC     ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├   LSHIFT    ┼      A      ┼      S      ┼      D      ┼      3      ┼      4      ┤ ├      `      ┼      X      ┼      V      ┼             ┼     UP      ┼             ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├    TAB      ┼      R      ┼      F      ┼      T      ┼     	Y      ┼      5      ┤ ├      N      ┼             ┼             ┼     LEFT    ┼    DOWN     ┼    RIGHT    ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├    LALT     ┼    LCTRL    ┼    SPACE    ┤ ├   ENTER     ┼             ┼    base     ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&kp N6     &kp N7  &kp W  &kp E     &kp N1     &kp N2       &kp F1     &kp M  &kp I  &none     &kp F5    &kp ESC
+&kp LSHFT  &kp A   &kp S  &kp D     &kp N3     &kp N4       &kp GRAVE  &kp X  &kp V  &none     &kp UP    &none
+&kp TAB    &kp R   &kp F  &kp T     &kp Y      &kp N5       &kp N      &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
+                          &kp LALT  &kp LCTRL  &kp SPACE    &kp RET    &none  &to 0
             >;
-		};
-		
-		//numpad_layer {
-		//label = "NumPad";
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├     ESC     ┼             ┼             ┼             ┼             ┼   NUMLOCK   ┤ ├     N7      ┼     N8      ┼     N9      ┼             ┼      *      ┼  BACKSPACE  ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N4      ┼     N5      ┼     N6      ┼             ┼             ┼      -      ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N1      ┼     N2      ┼     N3      ┼      .      ┼      /      ┼      +      ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├             ┼     Base    ┼             ┤ ├    ENTER    ┼             ┼     N0      ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+        };
 
-	//bindings = <
-    //    &kp ESC	&none	&none	&none	&none	&kp KP_NUM		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none	&kp ASTERISK	&kp BSPC
-    //    &none		&none	&none	&none	&none	&none			&kp KP_N4	&kp KP_N5	&kp KP_N6	&none	&none			&kp MINUS
-    //    &none		&none	&none	&none	&none	&none			&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp DOT	&kp FSLH		&kp PLUS
-	//						&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
-    //        >;
-	//	};
-		
-		locked_layer {
-		label = "Lock";
-	  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼     BASE    ┤
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
-      // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-      //                                           ├             ┼             ┼             ┤ ├             ┼             ┼             ┤
-      //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+        //numpad_layer {
+        //label = "NumPad";
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        // ├     ESC     ┼             ┼             ┼             ┼             ┼   NUMLOCK   ┤ ├     N7      ┼     N8      ┼     N9      ┼             ┼      *      ┼  BACKSPACE  ┤
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N4      ┼     N5      ┼     N6      ┼             ┼             ┼      -      ┤
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N1      ┼     N2      ┼     N3      ┼      .      ┼      /      ┼      +      ┤
+        // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+        //                                           ├             ┼     Base    ┼             ┤ ├    ENTER    ┼             ┼     N0      ┤
+        //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+        //bindings = <
+        //    &kp ESC	&none	&none	&none	&none	&kp KP_NUM		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none	&kp ASTERISK	&kp BSPC
+        //    &none		&none	&none	&none	&none	&none			&kp KP_N4	&kp KP_N5	&kp KP_N6	&none	&none			&kp MINUS
+        //    &none		&none	&none	&none	&none	&none			&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp DOT	&kp FSLH		&kp PLUS
+        //						&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
+        //        >;
+        //	};
 
-	bindings = <
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&none
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none	&to 0
-        &none	&none	&none	&none	&none	&none		&none	&none	&none	&none	&none 	&none
-												&none  &none	&none    	&none	&none	&none
+        locked_layer {
+            label = "Lock";
+
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼     BASE    ┤
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├             ┼             ┼             ┼             ┼             ┼             ┤
+            // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+            //                                           ├             ┼             ┼             ┤ ├             ┼             ┼             ┤
+            //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+
+            bindings = <
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &to 0
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
+                     &none  &none  &none    &none  &none  &none
             >;
-		};
-	};
+        };
+    };
 };
