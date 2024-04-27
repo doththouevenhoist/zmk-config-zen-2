@@ -171,25 +171,6 @@
             >;
         };
 
-        //numpad_layer {
-        //label = "NumPad";
-        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        // ├     ESC     ┼             ┼             ┼             ┼             ┼   NUMLOCK   ┤ ├     N7      ┼     N8      ┼     N9      ┼             ┼      *      ┼  BACKSPACE  ┤
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N4      ┼     N5      ┼     N6      ┼             ┼             ┼      -      ┤
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        // ├             ┼             ┼             ┼             ┼             ┼             ┤ ├     N1      ┼     N2      ┼     N3      ┼      .      ┼      /      ┼      +      ┤
-        // ╰───────────────────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-        //                                           ├             ┼     Base    ┼             ┤ ├    ENTER    ┼             ┼     N0      ┤
-        //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-        //bindings = <
-        //    &kp ESC	&none	&none	&none	&none	&kp KP_NUM		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none	&kp ASTERISK	&kp BSPC
-        //    &none		&none	&none	&none	&none	&none			&kp KP_N4	&kp KP_N5	&kp KP_N6	&none	&none			&kp MINUS
-        //    &none		&none	&none	&none	&none	&none			&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp DOT	&kp FSLH		&kp PLUS
-        //						&none  &to 0	&none    				&kp RET		&none		&kp KP_N0
-        //        >;
-        //	};
-
         locked_layer {
             label = "Lock";
 
@@ -211,17 +192,6 @@
             >;
         };
 
-        colemak_dh {
-            bindings = <
-&kp ESC    &kp Q  &kp W  &kp F     &kp P      &kp B        &kp J    &kp L       &kp U        &kp Y    &kp SEMI  &kp BSPC
-&kp LSHFT  &kp A  &kp R  &kp S     &kp T      &kp G        &kp M    &hm RGUI N  &hm RCTRL E  &kp I    &kp O     &kp RSHFT
-&kp TAB    &kp Z  &kp X  &kp C     &kp D      &kp V        &kp K    &kp H       &kp COMMA    &kp DOT  &kp FSLH  &kp DEL
-                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &trans      &trans
-            >;
-
-            label = "cole";
-        };
-
         tarmak_lv1 {
             bindings = <
 &kp ESC    &kp Q  &kp W  &kp J     &kp R      &kp T        &kp Y    &kp U   &kp I      &kp O    &kp P     &kp BSPC
@@ -231,6 +201,17 @@
             >;
 
             label = "tarmak";
+        };
+
+        colemak_dh {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp F     &kp P      &kp B        &kp J    &kp L       &kp U        &kp Y    &kp SEMI  &kp BSPC
+&kp LSHFT  &kp A  &kp R  &kp S     &kp T      &kp G        &kp M    &hm RGUI N  &hm RCTRL E  &kp I    &kp O     &kp RSHFT
+&kp TAB    &kp Z  &kp X  &kp C     &kp D      &kp V        &kp K    &kp H       &kp COMMA    &kp DOT  &kp FSLH  &kp DEL
+                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &trans      &trans
+            >;
+
+            label = "cole";
         };
     };
 };
