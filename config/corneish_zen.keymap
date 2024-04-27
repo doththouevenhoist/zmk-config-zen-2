@@ -89,10 +89,10 @@
             //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
             bindings = <
-&none   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6     &kp N7     &kp N8    &kp N9  &kp N0  &trans
-&trans  &none   &none   &none   &none   &kp GRAVE    &kp SQT    &kp EQUAL  &none     &none   &trans  &trans
-&none   &none   &none   &none   &none   &kp BSLH     &kp MINUS  &kp LBKT   &kp RBKT  &trans  &trans  &trans
-                        &trans  &trans  &trans       &trans     &trans     &none
+&none   &kp N1    &kp N2  &kp N3     &kp N4      &kp N5         &kp N6     &kp N7    &kp N8    &kp N9    &kp N0    &trans
+&trans  &kp EXCL  &kp AT  &kp HASH   &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &trans
+&none   &none     &none   &kp MINUS  &kp GRAVE   &kp BSLH       &kp SQT    &kp LBKT  &kp RBKT  &none     &none     &trans
+                          &trans     &trans      &trans         &kp EQUAL  &trans    &none
             >;
         };
 
@@ -110,10 +110,10 @@
             //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &kp F6          &kp F7    &kp F8     &kp F9   &kp F10   &kp F11   &kp F12
-&trans  &none   &none   &kp C_PREV  &kp C_NEXT  &kp C_VOL_UP    &kp HOME  &kp PG_UP  &kp INS  &none     &kp UP    &trans
-&none   &none   &none   &none       &none       &kp C_VOL_DN    &kp END   &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
-                        &trans      &kp C_MUTE  &none           &none     &none      &trans
+&kp F1  &kp F2      &kp F3     &kp F4      &kp F5       &kp F6          &kp F7           &kp F8     &kp F9   &kp F10   &kp F11   &kp F12
+&trans  &kp LC(A)   &none      &kp C_PREV  &kp C_NEXT   &kp C_VOL_UP    &kp HOME         &kp PG_UP  &kp INS  &none     &kp UP    &trans
+&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp C_VOL_DN    &kp END          &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
+                               &trans      &kp C_MUTE   &none           &kp PRINTSCREEN  &none      &trans
             >;
         };
 
