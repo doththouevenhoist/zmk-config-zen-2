@@ -112,8 +112,8 @@
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &kp F6          &kp F7           &kp F8     &kp F9   &kp F10   &kp F11   &kp F12
 &trans  &none   &none   &kp C_PREV  &kp C_NEXT  &kp C_VOL_UP    &kp HOME         &kp PG_UP  &kp INS  &none     &kp UP    &trans
-&trans  &none   &none   &none       &none       &kp C_VOL_DN    &kp END          &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
-                        &trans      &kp C_MUTE  &none           &kp PRINTSCREEN  &none      &trans
+&trans  &none   &none   &none       &kp K_MUTE  &kp C_VOL_DN    &kp END          &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
+                        &trans      &trans      &none           &kp PRINTSCREEN  &none      &trans
             >;
         };
 
