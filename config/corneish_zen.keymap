@@ -213,10 +213,10 @@
 
         colemak_dh {
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp F     &kp P      &kp B        &kp J    &kp L   &kp U      &kp Y    &kp SEMI  &kp BSPC
-&kp LSHFT  &kp A  &kp R  &kp S     &kp T      &kp G        &kp M    &kp N   &kp E      &kp I    &kp O     &kp RSHFT
-&kp TAB    &kp Z  &kp X  &kp C     &kp D      &kp V        &kp K    &kp H   &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
-                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &trans  &trans
+&kp ESC    &kp Q  &kp W  &kp F     &kp P      &kp B        &kp J    &kp L       &kp U        &kp Y    &kp SEMI  &kp BSPC
+&kp LSHFT  &kp A  &kp R  &kp S     &kp T      &kp G        &kp M    &hm RGUI N  &hm RCTRL E  &kp I    &kp O     &kp RSHFT
+&kp TAB    &kp Z  &kp X  &kp C     &kp D      &kp V        &kp K    &kp H       &kp COMMA    &kp DOT  &kp FSLH  &kp DEL
+                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &trans      &trans
             >;
 
             label = "cole";
