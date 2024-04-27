@@ -221,5 +221,16 @@
 
             label = "cole";
         };
+
+        tarmak_lv1 {
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp J     &kp R      &kp T        &kp Y    &kp U   &kp I      &kp O    &kp P     &kp BSPC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp H    &kp N   &kp E      &kp L    &kp SEMI  &kp RSHFT
+&kp TAB    &kp Z  &kp X  &kp C     &kp V      &kp B        &kp K    &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                         &kp LALT  &kp LCTRL  &kp SPACE    &kp RET  &trans  &trans
+            >;
+
+            label = "tarmak";
+        };
     };
 };
