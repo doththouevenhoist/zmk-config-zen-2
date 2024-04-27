@@ -110,10 +110,10 @@
             //                                           ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 
             bindings = <
-&kp F1  &kp F2      &kp F3     &kp F4      &kp F5       &kp F6          &kp F7           &kp F8     &kp F9   &kp F10   &kp F11   &kp F12
-&trans  &kp LC(A)   &none      &kp C_PREV  &kp C_NEXT   &kp C_VOL_UP    &kp HOME         &kp PG_UP  &kp INS  &none     &kp UP    &trans
-&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp C_VOL_DN    &kp END          &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
-                               &trans      &kp C_MUTE   &none           &kp PRINTSCREEN  &none      &trans
+&kp F1  &kp F2     &kp F3     &kp F4      &kp F5      &kp F6          &kp F7           &kp F8     &kp F9   &kp F10   &kp F11   &kp F12
+&trans  &kp LC(A)  &none      &kp C_PREV  &kp C_NEXT  &kp C_VOL_UP    &kp HOME         &kp PG_UP  &kp INS  &none     &kp UP    &trans
+&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)   &kp C_VOL_DN    &kp END          &kp PG_DN  &none    &kp LEFT  &kp DOWN  &kp RIGHT
+                              &trans      &kp C_MUTE  &none           &kp PRINTSCREEN  &none      &trans
             >;
         };
 
